@@ -1,0 +1,46 @@
+{
+  "name": "news-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_ENV=production node ./src/index.js",
+    "start:dev": "NODE_ENV=dev nodemon ./src/index.js",
+    "lint": "eslint --fix \"**/*.js\"",
+    "lint:ci": "eslint \"**/*.js\"",
+    "prettier": "prettier --write .",
+    "prettier:ci": "prettier --check .",
+    "buddy": "buddy -e src/*",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.2",
+    "@commitlint/config-conventional": "^18.4.2",
+    "buddy.js": "^0.9.3",
+    "eslint": "^8.54.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "nodemon": "^3.0.1",
+    "prettier": "3.1.0"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "npm run prettier",
+      "npm run lint",
+      "npm run buddy"
+    ]
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "koa": "^2.14.2",
+    "mongodb": "^6.3.0"
+  }
+}
