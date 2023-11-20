@@ -30,7 +30,7 @@ const validateRequestParameters = async (ctx, next) => {
     return context;
   }
 
-  next();
+  await next();
 };
 
 export { validateRequestParameters };

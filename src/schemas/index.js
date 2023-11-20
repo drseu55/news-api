@@ -1,7 +1,6 @@
 import Joi from "joi";
 
 const postRequestBodySchema = Joi.object({
-  id: Joi.number().integer().required(),
   date: Joi.string().required(),
   title: Joi.string().required(),
   shortDescription: Joi.string().required(),
