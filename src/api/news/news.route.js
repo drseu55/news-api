@@ -6,6 +6,6 @@ import { validateRequestParameters } from "../../middlewares/validation.middlewa
 const newsRouter = new KoaRouter({ prefix: "/v1/news" });
 
 newsRouter.post("/", validateRequestParameters, addNews);
-newsRouter.get("/:id", getNews);
+newsRouter.get("/:id?", getNews);
 
 export default newsRouter;
