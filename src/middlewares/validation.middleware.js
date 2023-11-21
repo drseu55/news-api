@@ -30,6 +30,9 @@ const validateRequestParameters = async (ctx, next) => {
     return context;
   }
 
+  // Format: YYYY-MM-DDTHH:mm:ss.sssZ
+  ctx.request.body.date = new Date(ctx.request.body.date);
+
   await next();
 };
 
