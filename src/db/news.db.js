@@ -10,12 +10,6 @@ const insertNews = async (db, newsData) => {
 
 /* ----------------------------- SELECT ----------------------------- */
 
-const fetchAllNews = async (db) => {
-  const news = await db.collection(NEWS_COLLECTION).find().toArray();
-
-  return news;
-};
-
 const fetchNewsById = async (db, id) => {
   const query = {
     _id: new ObjectId(id),
@@ -26,4 +20,10 @@ const fetchNewsById = async (db, id) => {
   return news;
 };
 
-export { insertNews, fetchAllNews, fetchNewsById };
+const fetchNews = async (db, query, sort) => {
+  const news = await db.collection(NEWS_COLLECTION).find(query).sort(sort).toArray();
+
+  return news;
+};
+
+export { insertNews, fetchNews, fetchNewsById };
