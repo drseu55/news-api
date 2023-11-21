@@ -12,7 +12,7 @@ const responseBodySchema = Joi.object({
     .pattern(/^(error|success)$/)
     .required(),
   message: Joi.string().allow("").required(),
-  data: Joi.string().allow("").required(),
+  data: Joi.required(),
 });
 
 export { postRequestBodySchema, responseBodySchema };
