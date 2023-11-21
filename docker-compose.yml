@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - db:/data/db
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+  app:
+    depends_on:
+      - mongodb
+    build: ./
+    restart: always
+    environment:
+      - DB_HOST=mongodb
+    env_file: .env
+    ports:
+      - ${PORT}:${PORT}
+
+volumes:
+  db:
