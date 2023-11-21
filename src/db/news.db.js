@@ -5,40 +5,25 @@ const NEWS_COLLECTION = "news";
 /* ----------------------------- INSERT ----------------------------- */
 
 const insertNews = async (db, newsData) => {
-  try {
-    await db.collection(NEWS_COLLECTION).insertOne(newsData);
-  } catch (error) {
-    // TODO: Handle error
-    console.log(error);
-  }
+  await db.collection(NEWS_COLLECTION).insertOne(newsData);
 };
 
 /* ----------------------------- SELECT ----------------------------- */
 
 const fetchAllNews = async (db) => {
-  try {
-    const news = await db.collection(NEWS_COLLECTION).find().toArray();
+  const news = await db.collection(NEWS_COLLECTION).find().toArray();
 
-    return news;
-  } catch (error) {
-    // TODO: Handle error
-    console.log(error);
-  }
+  return news;
 };
 
 const fetchNewsById = async (db, id) => {
-  try {
-    const query = {
-      _id: new ObjectId(id),
-    };
+  const query = {
+    _id: new ObjectId(id),
+  };
 
-    const news = await db.collection(NEWS_COLLECTION).findOne(query);
+  const news = await db.collection(NEWS_COLLECTION).findOne(query);
 
-    return news;
-  } catch (error) {
-    // TODO: Handle error
-    console.log(error);
-  }
+  return news;
 };
 
 export { insertNews, fetchAllNews, fetchNewsById };
