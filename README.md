@@ -101,8 +101,11 @@ Responses follow this pattern:
 }
 ```
 
-- [*POST*] **/v1/news** - Create and save news to database
-  Example request body:
+#### Create and save news to database
+
+[*POST*] **/v1/news**
+
+Example request body:
 
 ```json
 {
@@ -113,7 +116,7 @@ Responses follow this pattern:
 }
 ```
 
-Date can be with or without time, e.g. *2023-11-22* or *2023-11-22T12:00:00*
+Date can be with or without time, e.g. _2023-11-22_ or _2023-11-22T12:00:00_
 
 Response when the request is successful:
 
@@ -127,7 +130,9 @@ Response when the request is successful:
 }
 ```
 
-- [*GET*] **/v1/news/:id** - Fetch one news by id. Id should be a string
+#### Fetch one news by id. Id should be a string
+
+[*GET*] **/v1/news/:id**
 
 Response when the request is successful:
 
@@ -145,7 +150,9 @@ Response when the request is successful:
 }
 ```
 
-- [*GET*] **/v1/news/** - Fetch news, which can be filtered or sorted
+#### Fetch news, which can be filtered or sorted
+
+[*GET*] **/v1/news/**
 
 URL parameter structure:
 
@@ -180,13 +187,14 @@ Example response when the request is successful:
 }
 ```
 
-- [*PUT*] **/v1/news/update** - Set new values for news parameters
+#### Set new values for news parameters
+
+[*PUT*] **/v1/news/:id**
 
 Example request body:
 
 ```json
 {
-  "id": "655dbf1f5fa4ffecddf2e536",
   "date": "2023-11-23",
   "title": "News Title 1 - Some value",
   "shortDescription": "Short description 1",
@@ -206,7 +214,9 @@ Response when the request is successful:
 
 If the id is not found, the API will return `Not Found` and appropriate message.
 
-- [*DELETE*] **/v1/news/:id** - Delete news from database
+#### Delete news from database
+
+[*DELETE*] **/v1/news/:id**
 
 Response when the request is successful:
 
@@ -241,6 +251,7 @@ feat: Add beta sequence
 
 ### Linting
 
-- eslint
-- prettier
-- commitlint
+- ESLint
+- Prettier
+- Commitlint
+- Buddy.js
