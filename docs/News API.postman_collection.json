@@ -1,0 +1,153 @@
+{
+  "info": {
+    "_postman_id": "8cc2f152-d27f-4d31-95b4-fd2dc879158a",
+    "name": "News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29382549"
+  },
+  "item": [
+    {
+      "name": "GET",
+      "item": [
+        {
+          "name": "Get news by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9000/v1/news/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["v1", "news", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "655cd363af081bba782fb227"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all news",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9000/v1/news?sort[date]=asc&sort[title]=desc&filter[date]=2023-11-22&filter[title]=News",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["v1", "news"],
+              "query": [
+                {
+                  "key": "sort[date]",
+                  "value": "asc"
+                },
+                {
+                  "key": "sort[title]",
+                  "value": "desc"
+                },
+                {
+                  "key": "filter[date]",
+                  "value": "2023-11-22"
+                },
+                {
+                  "key": "filter[title]",
+                  "value": "News"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "POST",
+      "item": [
+        {
+          "name": "Add news",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\": \"2023-11-22\",\n    \"title\": \"News Title 10\",\n    \"shortDescription\": \"Short description 10\",\n    \"text\": \"Text 10\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/v1/news",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["v1", "news"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PUT",
+      "item": [
+        {
+          "name": "Update news",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"655cd363af081bba782fb227\",\n    \"date\": \"2023-11-23\",\n    \"title\": \"News Title 6\",\n    \"shortDescription\": \"Short description 5\",\n    \"text\": \"Text 5\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9000/v1/news/update",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["v1", "news", "update"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DELETE",
+      "item": [
+        {
+          "name": "Delete news",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9000/v1/news/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["v1", "news", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "655cd363af081bba782fb227"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
