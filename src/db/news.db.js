@@ -7,7 +7,7 @@ const NEWS_COLLECTION = "news";
 const insertNews = async (db, newsData) => {
   const result = await db.collection(NEWS_COLLECTION).insertOne(newsData);
 
-  return result.insertedId;
+  return result;
 };
 
 /* ----------------------------- SELECT ----------------------------- */
@@ -36,12 +36,7 @@ const setNews = async (db, id, newsData) => {
   };
 
   const updateDoc = {
-    $set: {
-      date: newsData.date,
-      title: newsData.title,
-      shortDescription: newsData.shortDescription,
-      text: newsData.text,
-    },
+    $set: { ...newsData },
   };
 
   const result = await db.collection(NEWS_COLLECTION).updateOne(filter, updateDoc);

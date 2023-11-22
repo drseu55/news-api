@@ -9,16 +9,6 @@ const postRequestBodySchema = Joi.object({
   text: Joi.string().required(),
 });
 
-const putRequestBodySchema = Joi.object({
-  id: Joi.string().required(),
-  date: Joi.string()
-    .pattern(/^\d{4}-\d{2}-\d{2}(T?\d{2}:\d{2}:\d{2})?$/)
-    .required(),
-  title: Joi.string().required(),
-  shortDescription: Joi.string().required(),
-  text: Joi.string().required(),
-});
-
 const responseBodySchema = Joi.object({
   status: Joi.string()
     .pattern(/^(error|success)$/)
@@ -27,4 +17,4 @@ const responseBodySchema = Joi.object({
   data: Joi.required(),
 });
 
-export { postRequestBodySchema, putRequestBodySchema, responseBodySchema };
+export { postRequestBodySchema, responseBodySchema };

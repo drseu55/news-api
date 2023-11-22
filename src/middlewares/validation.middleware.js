@@ -10,7 +10,7 @@ const validateRequestParameters = (schema) => async (ctx, next) => {
       data: "",
     };
 
-    const context = setContextResponse(ctx, StatusCodes.FORBIDDEN, response);
+    const context = setContextResponse(ctx, StatusCodes.BAD_REQUEST, response);
 
     return context;
   }
@@ -24,7 +24,7 @@ const validateRequestParameters = (schema) => async (ctx, next) => {
       data: "",
     };
 
-    const context = setContextResponse(ctx, StatusCodes.FORBIDDEN, response);
+    const context = setContextResponse(ctx, StatusCodes.BAD_REQUEST, response);
 
     return context;
   }

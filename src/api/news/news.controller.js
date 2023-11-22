@@ -5,13 +5,13 @@ import { insertNews, fetchNews, fetchNewsById, setNews, removeNews } from "../..
 import { setContextResponse } from "../../utils/index.js";
 
 const addNews = async (ctx) => {
-  const id = await insertNews(ctx.db, ctx.request.body);
+  const result = await insertNews(ctx.db, ctx.request.body);
 
   const response = {
     status: "success",
     message: "News created",
     data: {
-      id,
+      id: result.insertedId,
     },
   };
 
@@ -47,6 +47,7 @@ const getNews = async (ctx) => {
 };
 
 const updateNews = async (ctx) => {
+  const id = ctx.params.id;
   const newsData = {
     date: new Date(ctx.request.body.date),
     title: ctx.request.body.title,
@@ -54,7 +55,7 @@ const updateNews = async (ctx) => {
     text: ctx.request.body.text,
   };
 
-  const result = await setNews(ctx.db, ctx.request.body.id, newsData);
+  const result = await setNews(ctx.db, id, newsData);
 
   let status, response;
   if (result.matchedCount === 0) {
