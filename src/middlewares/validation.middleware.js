@@ -1,9 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 
-import { postRequestBodySchema } from "../schemas/index.js";
 import { setContextResponse } from "../utils/index.js";
 
-const validateRequestParameters = async (ctx, next) => {
+const validateRequestParameters = (schema) => async (ctx, next) => {
   if (ctx.request.type !== "application/json") {
     const response = {
       status: "error",
@@ -16,7 +15,7 @@ const validateRequestParameters = async (ctx, next) => {
     return context;
   }
 
-  const { error, _ } = postRequestBodySchema.validate(ctx.request.body);
+  const { error, _ } = schema.validate(ctx.request.body);
 
   if (error) {
     const response = {

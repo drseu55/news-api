@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import qs from "qs";
 
-import { insertNews, fetchNews, fetchNewsById } from "../../db/news.db.js";
+import { insertNews, fetchNews, fetchNewsById, setNews } from "../../db/news.db.js";
 import { setContextResponse } from "../../utils/index.js";
 
 const addNews = async (ctx) => {
@@ -43,6 +43,40 @@ const getNews = async (ctx) => {
 
   return context;
 };
+
+const updateNews = async (ctx) => {
+  const newsData = {
+    date: new Date(ctx.request.body.date),
+    title: ctx.request.body.title,
+    shortDescription: ctx.request.body.shortDescription,
+    text: ctx.request.body.text,
+  };
+
+  const result = await setNews(ctx.db, ctx.request.body.id, newsData);
+
+  let status, response;
+  if (result.matchedCount === 0) {
+    status = StatusCodes.NOT_FOUND;
+    response = {
+      status: "error",
+      message: "Id doesn't exist",
+      data: "",
+    };
+  } else {
+    status = StatusCodes.OK;
+    response = {
+      status: "success",
+      message: "News updated",
+      data: "",
+    };
+  }
+
+  const context = setContextResponse(ctx, status, response);
+
+  return context;
+};
+
+/* INTERNAL FUNCTIONS */
 
 const buildDbQuery = (filter) => {
   let dbQuery = {};
@@ -116,4 +150,4 @@ const buildDbSort = (sort) => {
   return dbSort;
 };
 
-export { addNews, getNews };
+export { addNews, getNews, updateNews };
