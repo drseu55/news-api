@@ -5,7 +5,9 @@ const NEWS_COLLECTION = "news";
 /* ----------------------------- INSERT ----------------------------- */
 
 const insertNews = async (db, newsData) => {
-  await db.collection(NEWS_COLLECTION).insertOne(newsData);
+  const result = await db.collection(NEWS_COLLECTION).insertOne(newsData);
+
+  return result.insertedId;
 };
 
 /* ----------------------------- SELECT ----------------------------- */

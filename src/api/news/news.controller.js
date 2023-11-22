@@ -5,12 +5,14 @@ import { insertNews, fetchNews, fetchNewsById, setNews, removeNews } from "../..
 import { setContextResponse } from "../../utils/index.js";
 
 const addNews = async (ctx) => {
-  await insertNews(ctx.db, ctx.request.body);
+  const id = await insertNews(ctx.db, ctx.request.body);
 
   const response = {
     status: "success",
     message: "News created",
-    data: "",
+    data: {
+      id,
+    },
   };
 
   const context = setContextResponse(ctx, StatusCodes.OK, response);
