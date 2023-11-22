@@ -8,7 +8,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  ignorePatterns: ["commitlint.config.cjs"],
+  ignorePatterns: ["commitlint.config.cjs", "docs/*"],
   rules: {
     "no-unused-vars": [
       "error",
