@@ -102,14 +102,14 @@ Responses follow this pattern:
 ```
 
 - [*POST*] **/v1/news** - Create and save news to database
-Example request body:
+  Example request body:
 
 ```json
 {
-    "date": "2023-11-22",
-    "title": "News Title 1",
-    "shortDescription": "Short description 1",
-    "text": "Text 1"
+  "date": "2023-11-22",
+  "title": "News Title 1",
+  "shortDescription": "Short description 1",
+  "text": "Text 1"
 }
 ```
 
@@ -119,11 +119,11 @@ Response when the request is successful:
 
 ```json
 {
-    "status": "success",
-    "message": "News created",
-    "data": {
-        "id": "655dbf1f5fa4ffecddf2e536"
-    }
+  "status": "success",
+  "message": "News created",
+  "data": {
+    "id": "655dbf1f5fa4ffecddf2e536"
+  }
 }
 ```
 
@@ -133,15 +133,15 @@ Response when the request is successful:
 
 ```json
 {
-    "status": "success",
-    "message": "News fetched",
-    "data": {
-        "_id": "655dbf1f5fa4ffecddf2e536",
-        "date": "2023-11-22T00:00:00.000Z",
-        "title": "News Title 1",
-        "shortDescription": "Short description 1",
-        "text": "Text 1"
-    }
+  "status": "success",
+  "message": "News fetched",
+  "data": {
+    "_id": "655dbf1f5fa4ffecddf2e536",
+    "date": "2023-11-22T00:00:00.000Z",
+    "title": "News Title 1",
+    "shortDescription": "Short description 1",
+    "text": "Text 1"
+  }
 }
 ```
 
@@ -159,24 +159,24 @@ Example response when the request is successful:
 
 ```json
 {
-    "status": "success",
-    "message": "News fetched",
-    "data": [
-        {
-            "_id": "655cc716791cb80ae8e8abf3",
-            "date": "2023-11-22T00:00:00.000Z",
-            "title": "News Title 2",
-            "shortDescription": "Short description 2",
-            "text": "Text 2"
-        },
-        {
-            "_id": "655dbf1f5fa4ffecddf2e536",
-            "date": "2023-11-22T00:00:00.000Z",
-            "title": "News Title 1",
-            "shortDescription": "Short description 1",
-            "text": "Text 1"
-        },
-    ]
+  "status": "success",
+  "message": "News fetched",
+  "data": [
+    {
+      "_id": "655cc716791cb80ae8e8abf3",
+      "date": "2023-11-22T00:00:00.000Z",
+      "title": "News Title 2",
+      "shortDescription": "Short description 2",
+      "text": "Text 2"
+    },
+    {
+      "_id": "655dbf1f5fa4ffecddf2e536",
+      "date": "2023-11-22T00:00:00.000Z",
+      "title": "News Title 1",
+      "shortDescription": "Short description 1",
+      "text": "Text 1"
+    }
+  ]
 }
 ```
 
@@ -186,11 +186,11 @@ Example request body:
 
 ```json
 {
-    "id": "655dbf1f5fa4ffecddf2e536",
-    "date": "2023-11-23",
-    "title": "News Title 1 - Some value",
-    "shortDescription": "Short description 1",
-    "text": "Text 1"
+  "id": "655dbf1f5fa4ffecddf2e536",
+  "date": "2023-11-23",
+  "title": "News Title 1 - Some value",
+  "shortDescription": "Short description 1",
+  "text": "Text 1"
 }
 ```
 
@@ -198,9 +198,9 @@ Response when the request is successful:
 
 ```json
 {
-    "status": "success",
-    "message": "News updated",
-    "data": ""
+  "status": "success",
+  "message": "News updated",
+  "data": ""
 }
 ```
 
@@ -212,9 +212,9 @@ Response when the request is successful:
 
 ```json
 {
-    "status": "success",
-    "message": "News deleted",
-    "data": ""
+  "status": "success",
+  "message": "News deleted",
+  "data": ""
 }
 ```
 
@@ -222,7 +222,7 @@ If the id is not found, the API will return `Not Found` and appropriate message.
 
 ## Conventions and standards for contributing to project
 
-Use GitHub Flow for branch-based workflow. There are custom rules for linting, which can be found in `.eslintrc.cjs` file.
+Use GitHub Flow for branch-based workflow. There are custom rules for linting, which can be found in `.eslintrc.cjs` file and custom Prettier configuration, which can be found in `.prettierrc.cjs`.
 
 ### Commit message format
 
