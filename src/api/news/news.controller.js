@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import qs from "qs";
 
-import { insertNews, fetchNews, fetchNewsById, setNews } from "../../db/news.db.js";
+import { insertNews, fetchNews, fetchNewsById, setNews, removeNews } from "../../db/news.db.js";
 import { setContextResponse } from "../../utils/index.js";
 
 const addNews = async (ctx) => {
@@ -67,6 +67,33 @@ const updateNews = async (ctx) => {
     response = {
       status: "success",
       message: "News updated",
+      data: "",
+    };
+  }
+
+  const context = setContextResponse(ctx, status, response);
+
+  return context;
+};
+
+const deleteNews = async (ctx) => {
+  const id = ctx.params.id;
+
+  const result = await removeNews(ctx.db, id);
+
+  let status, response;
+  if (result.deletedCount === 0) {
+    status = StatusCodes.NOT_FOUND;
+    response = {
+      status: "error",
+      message: "Id doesn't exist",
+      data: "",
+    };
+  } else {
+    status = StatusCodes.OK;
+    response = {
+      status: "success",
+      message: "News deleted",
       data: "",
     };
   }
@@ -150,4 +177,4 @@ const buildDbSort = (sort) => {
   return dbSort;
 };
 
-export { addNews, getNews, updateNews };
+export { addNews, getNews, updateNews, deleteNews };

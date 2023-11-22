@@ -47,4 +47,15 @@ const setNews = async (db, id, newsData) => {
   return result;
 };
 
-export { insertNews, fetchNews, fetchNewsById, setNews };
+/* ----------------------------- DELETE ----------------------------- */
+const removeNews = async (db, id) => {
+  const filter = {
+    _id: new ObjectId(id),
+  };
+
+  const result = await db.collection(NEWS_COLLECTION).deleteOne(filter);
+
+  return result;
+};
+
+export { insertNews, fetchNews, fetchNewsById, setNews, removeNews };
