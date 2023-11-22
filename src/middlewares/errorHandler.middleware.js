@@ -9,7 +9,7 @@ const handleAllErrors = async (ctx, next) => {
     const ctxStatus = error.statusCode || error.status || StatusCodes.INTERNAL_SERVER_ERROR;
     const response = {
       status: "error",
-      message: StatusCodes.INTERNAL_SERVER_ERROR === 500 ? "Internal Server Error" : error.message,
+      message: error.message,
       data: "",
     };
 

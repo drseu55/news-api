@@ -26,4 +26,25 @@ const fetchNews = async (db, query, sort) => {
   return news;
 };
 
-export { insertNews, fetchNews, fetchNewsById };
+/* ----------------------------- UPDATE ----------------------------- */
+
+const setNews = async (db, id, newsData) => {
+  const filter = {
+    _id: new ObjectId(id),
+  };
+
+  const updateDoc = {
+    $set: {
+      date: newsData.date,
+      title: newsData.title,
+      shortDescription: newsData.shortDescription,
+      text: newsData.text,
+    },
+  };
+
+  const result = await db.collection(NEWS_COLLECTION).updateOne(filter, updateDoc);
+
+  return result;
+};
+
+export { insertNews, fetchNews, fetchNewsById, setNews };

@@ -5,7 +5,7 @@
 - Node >= v18.12.0
 - npm
 
-## Setup
+## Setup (local)
 
 ### Database
 
@@ -23,6 +23,12 @@ Enable the `mongod` process to be started with system reboot.
 sudo systemctl enable mongod
 ```
 
+### Clone repository
+
+```sh
+git clone https://github.com/drseu55/news-api
+```
+
 ### Environment variables
 
 Create .env file and change constants if you wish
@@ -31,13 +37,7 @@ Create .env file and change constants if you wish
 cp .env.example .env
 ```
 
-## Usage
-
-Clone repository
-
-```sh
-git clone https://github.com/drseu55/news-api
-```
+### Start the server
 
 Change directory and install dependencies with npm
 
@@ -51,7 +51,25 @@ Start the server
 npm run start
 ```
 
-## Testing
+## Setup (Docker)
+
+### Environment variables
+
+Create .env file and change constants if you wish
+
+```sh
+cp .env.example .env
+```
+
+### Start Docker containers
+
+```sh
+sudo docker compose -f docker-compose.yml up -d --remove-orphans
+```
+
+## Usage
+
+### API Endpoints
 
 ## Conventions and standards for contributing to project
 
